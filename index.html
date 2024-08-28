@@ -46,47 +46,53 @@
 
 <body>
     <div>
-        <div>
+        <!-- <div>
     <img src="" id="img"><br><br>
-        </div>
+        </div> -->
         <div>
     <select id="width">
-        <option value="100x100">100x100</option>
-        <option value="150x150">150x150</option>
-        <option value="200x200" selected>200x200</option>
-        <option value="250x250">250x250</option>
-        <option value="300x300">300x300</option>
+        <option value="small">small</option>
+        <option value="medium">medium</option>
+        <option value="large">large</option>
+        <option value="1" selected>100x100</option>
+        <option value="2">200x200</option>
+        <option value="3">300x300</option>
+        <option value="4">400x400</option>
+        <option value="5">500x500</option>
     </select><br><br>
-    <textarea id="QRtext" cols="20" rows="5" placeholder="Enter your text"></textarea>
+    <textarea id="QRtext" cols="20" rows="5" placeholder="Enter your text" ></textarea>
     <br><br>
 </div>
     <input type="submit" onclick="qrgen()">
     </div>
     <p style="font-family: 'Times New Roman'; font-size: large; font-weight: bolder;">Developed by Vempa Surendra DJ_H</p>
 
+    <div>
+        <img src="" id="img"><br><br>
+            </div>
+
+    <!-- https://qrcode.tec-it.com/API/QRCode?data=hello&backcolor=%23ffffff&size=small&quietzone=1&errorcorrection=h -->
+
+
+
+
     <script>
         function qrgen(){
             img=document.getElementById("img")
             size=document.getElementById("width").value
             text=document.getElementById("QRtext").value
-            img.src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs="
-            if (size=="100x100"){
-                img.src+="100x100&chl="+text
+            if (text !="") {
+                img.src="https://qrcode.tec-it.com/API/QRCode?data="+text+"&backcolor=%23ffffff&size="+size+"&quietzone=1&errorcorrection=h"
+                
             }
-            else if(size=="150x150"){
-                img.src+="150x150&chl="+text
-            }
-            else if(size=="200x200"){
-                img.src+="200x200&chl="+text
-            }
-            else if(size=="250x250"){
-                img.src+="250x250&chl="+text
+            else if(text =" "){
+                img.src="https://qrcode.tec-it.com/API/QRCode?data="+"https://onedrive.live.com/?id=35EAB47BDF06E573%21s03d7a32c10af4707b1be89f9350d3119&cid=35EAB47BDF06E573"+"&backcolor=%23ffffff&size="+size+"&quietzone=1&errorcorrection=h"
+                // img.src="https://qrcode.tec-it.com/API/QRCode?data="+text+"&backcolor=%23ffffff&size="+size+"&quietzone=1&errorcorrection=h"
             }
             else{
-                img.src+="300x300&chl="+text
-
-            }
-        }
+                img.src="https://qrcode.tec-it.com/API/QRCode?data="+"https://onedrive.live.com/?id=35EAB47BDF06E573%21s03d7a32c10af4707b1be89f9350d3119&cid=35EAB47BDF06E573"+"&backcolor=%23ffffff&size="+size+"&quietzone=1&errorcorrection=h"
+                // img.src="https://qrcode.tec-it.com/API/QRCode?data="+text+"&backcolor=%23ffffff&size="+size+"&quietzone=1&errorcorrection=h"
+        }}
     </script>
 </body>
 </html>
